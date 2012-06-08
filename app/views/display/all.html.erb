@@ -1,0 +1,8 @@
+<h1>Campus Wifi Packet Loss:</h1>
+<h2>By hour</h2>
+<% @output.each do |a| %>
+	<p><%= a[0] %>:00 valid: <%= a[1][:true] %> Dropped: <%= a[1][:false] %> Drops: <%= '%.2f' % ((Float(a[1][:false])/Float(a[1][:true])) * 100) %>%</p>
+<%end%>
+<h2>Overall</h2>
+<p>valid: <%= @all[:true] %> Dropped: <%= @all[:false] %> Drops: <%= '%.2f' % ((Float(@all[:false])/Float(@all[:true])) * 100) %>%</p>
+<p><%= link_to "Download Raw Data", download_path + '.txt' %>
