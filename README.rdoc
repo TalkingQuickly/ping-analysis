@@ -1,4 +1,4 @@
-==
+== Ping Analysis
 
 Really Simply App to analyse a ping log file generated using the command:
 
