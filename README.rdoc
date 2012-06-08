@@ -4,7 +4,7 @@ Really Simply App to analyse a ping log file generated using the command:
 
 ping www.google.co.uk | perl -nle 'open (MYFILE, ">>08052011.txt"); print MYFILE  scalar(localtime), " ", $_'
 
-This applications can be run whilst data is being collected to give a realtime
+This application can be run whilst data is being collected to give a realtime
 view.
 
 The absolute path to the filename should be set in display_controller 
