@@ -1,6 +1,12 @@
 class DisplayController < ApplicationController
+	#extracts valid/ invalid packet data from the below file 
+	#days are aggregated e.g. 9AM is 9 AM to 10AM across all
+	#days present in the file. 
+	
+	before_filter :load_required_variables
+
 	def all 
-		f = File.open("/Users/ben/08052011.txt") or die "Unable to open file..."
+		f = File.open(@the_file) or die "Unable to open file..."
 		contentsArray=[]  # start with an empty array
 		f.each_line {|line|
 			contentsArray.push line
@@ -25,6 +31,12 @@ class DisplayController < ApplicationController
 	end
 
 	def download
-		render :file => "/Users/ben/08052011.txt"
+		render :file => @the_file
+	end
+
+	private
+
+	def load_required_variables
+		@the_file = "/Users/ben/08052011.txt"
 	end
 end
